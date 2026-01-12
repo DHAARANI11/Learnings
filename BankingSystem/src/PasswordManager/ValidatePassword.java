@@ -1,0 +1,17 @@
+package PasswordManager;
+import java.util.regex.Pattern;
+
+public class ValidatePassword {
+	
+	public boolean checkPassword(String password) {
+		String regex =
+                "^(?=.*[0-9])" +        
+                "(?=.*[a-z])" +         
+                "(?=.*[A-Z])" +         
+                "(?=.*[@#$%^&+=!])" +   
+                "(?=\\S+$)" +           
+                ".{8,}$";               
+
+        return Pattern.matches(regex, password);
+	}
+}

@@ -1,0 +1,17 @@
+package BankingSystem;
+
+public class Savings extends Account{
+	private static final double INTEREST_RATE = 0.05;
+
+    @Override
+    public double calculateInterest() {
+        double interest = balance * INTEREST_RATE;
+        balance += interest;
+        System.out.println("Savings Interest Added: " + interest);
+    }
+
+    @Override
+    public void recordTransaction(String type, double amount) {
+        System.out.println("[Savings] " + type + ": " + amount);
+    }
+}

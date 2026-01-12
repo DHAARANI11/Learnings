@@ -1,0 +1,17 @@
+package Generics;
+
+import java.util.ArrayList;
+
+public class Main {
+	public static void main(String args[]) {
+		
+		Department<Integer> dept=new Department<>(100);
+		System.out.println(dept.getName());
+		
+		Department<String> dept1=new Department<>("Dhaaru");
+		System.out.println(dept1.getName());
+		
+		
+		
+	}
+}

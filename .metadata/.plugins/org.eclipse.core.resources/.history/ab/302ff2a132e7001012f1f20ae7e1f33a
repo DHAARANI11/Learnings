@@ -1,0 +1,47 @@
+package BankingSystem;
+
+public class Bank {
+	    	private static Bank bank;
+	        private Customer customer;
+
+	        private Bank() {}
+	        
+
+	        public static Bank getInstance() {
+	            if (bank == null)
+	                bank = new Bank();
+	            return bank;
+	        }
+
+	        public void createCustomer(String name, int type) {
+	            Account account;
+
+	            if (type == 1)
+	                account = new Savings();
+	            else
+	                account = new Current();
+
+	            customer = new Customer(name, account);
+	            System.out.println("Customer created successfully!");
+	        }
+	        
+	        public void deposit(double amount) {
+	            customer.getAccount().deposit(amount);
+	            System.out.println("Deposit successful");
+	        }
+
+	        public void withdraw(double amount){
+	            customer.getAccount().withdraw(amount);
+	            System.out.println("Withdrawal successful");
+	        }
+
+	        public void checkBalance() {
+	            System.out.println("Balance: " + customer.getAccount().getBalance());
+	        }
+
+	        public void calculateInterest() {
+	            customer.getAccount().calculateInterest();
+	        }
+	        
+	}
+

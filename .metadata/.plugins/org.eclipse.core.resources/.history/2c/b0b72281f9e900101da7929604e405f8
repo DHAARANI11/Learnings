@@ -1,0 +1,49 @@
+package BankingSystem;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Bank implements TransactionService {
+
+    private static Bank bank;
+    private Map<Integer, Customer> customers =new HashMap<>();
+    private int customerIdCounter =4000;
+    
+    private Bank() {}
+
+    public static Bank getInstance() {
+        if (bank == null) bank = new Bank();
+        return bank;
+    }
+
+    public void createCustomer(String name, int type) {
+        Account account = (type == 1) ? new SavingsAccount() : new CurrentAccount();
+        int id = ++customerIdCounter;
+        customers.put(id, new Customer(id, name, account));
+        System.out.println("Customer created with ID: " + id);
+        System.out.println("Account Created Sucessfully!!");
+    }
+
+    @Override
+    public void deposit(int customerId, double amount) {
+        customers.get(customerId).getAccount().deposit(amount);
+    }
+
+    @Override
+    public void withdraw(int customerId, double amount) throws InsufficientBalanceException {
+        customers.get(customerId).getAccount().withdraw(amount);
+    }
+
+    @Override
+    public double checkBalance(int customerId) {
+        return customers.get(customerId).getAccount().getBalance();
+    }
+
+    public void calculateInterest(int customerId) {
+        customers.get(customerId).getAccount().calculateInterest();
+    }
+
+    public void viewCustomers() {
+        for(Map.entry<Intege map:)
+    }
+}

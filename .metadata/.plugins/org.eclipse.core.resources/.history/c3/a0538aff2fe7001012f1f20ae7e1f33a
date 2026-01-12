@@ -1,0 +1,49 @@
+package BankingSystem;
+
+public class Bank {
+	    public static void main(String[] args) {
+	    	private static Bank bank;
+	        private Customer customer;
+
+	        private Bank() {}
+	        
+
+	        public static Bank getInstance() {
+	            if (bank == null)
+	                bank = new Bank();
+	            return bank;
+	        }
+
+	        public void createCustomer(String name, int type) {
+	            Account account;
+
+	            if (type == 1)
+	                account = new SavingsAccount();
+	            else
+	                account = new CurrentAccount();
+
+	            customer = new Customer(name, account);
+	            System.out.println("Customer created successfully!");
+	        }
+	        
+	        public void deposit(double amount) {
+	            customer.getAccount().deposit(amount);
+	            System.out.println("Deposit successful");
+	        }
+
+	        public void withdraw(double amount) throws InsufficientBalanceException {
+	            customer.getAccount().withdraw(amount);
+	            System.out.println("Withdrawal successful");
+	        }
+
+	        public void checkBalance() {
+	            System.out.println("Balance: " + customer.getAccount().getBalance());
+	        }
+
+	        public void calculateInterest() {
+	            customer.getAccount().calculateInterest();
+	        }
+	        
+	}
+
+}

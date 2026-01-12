@@ -1,0 +1,9 @@
+package PasswordManager;
+
+public class ValidatePassword {
+	
+	public boolean checkPassword(String password) {
+		
+		return false;
+	}
+}

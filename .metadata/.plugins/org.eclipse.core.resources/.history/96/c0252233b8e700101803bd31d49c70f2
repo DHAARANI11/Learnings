@@ -1,0 +1,44 @@
+package ClassAndObject;
+
+public class Main {
+	public static void main(String[] args) {
+		
+		Employee employee=new Employee("Dhaarani");
+		Employee employee2=new Employee("Dharshini","Automation");
+		Employee employee3=new Employee(employee2);
+		Employee employee4=new Employee("Dharsh");
+		Employee employee5=new Employee();
+		
+		Employer employer=Employer.getEmployer();
+		
+		InnerClass ic=new InnerClass();
+		InnerClass.Innercls1 ic1=new InnerClass().new Innercls1();
+		InnerClass.Innercls2 ic2=new InnerClass.Innercls2();
+		
+		
+		System.out.println(employee.empId+" "+employee.employeeName+" "+employee.employeeDesignation);
+		System.out.println(employee2.empId+" "+employee2.employeeName+" "+employee2.employeeDesignation);
+		System.out.println(employee3.empId+" "+employee3.employeeName+" "+employee3.employeeDesignation);
+		System.out.println(employee4.empId+" "+employee4.employeeName+" "+employee4.employeeDesignation);
+		System.out.println(employee5.empId+" "+employee5.employeeName+" "+employee5.employeeDesignation);
+		
+		ic.Outermethod();
+		ic1.Helloworld();
+		ic2.Helloworld();
+		
+		
+		
+		Employee emp=new Employee() {
+			
+			@Override
+			public void myEmp() {
+				super.myEmp();
+				System.out.println("I am Dhaarani");
+			}
+			
+		};
+		
+		emp.myEmp();
+		
+	}
+}

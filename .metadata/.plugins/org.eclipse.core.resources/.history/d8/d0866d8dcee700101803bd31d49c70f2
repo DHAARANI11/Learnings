@@ -1,0 +1,29 @@
+package BankingSystem;
+
+public abstract class Account implements TransactionService{
+	protected double balance;
+
+    public void deposit(double amount) {
+        balance += amount;
+        recordTransaction("Deposit", amount);
+    }
+
+    public void withdraw(double amount) {
+        if (amount > balance) {
+        	System.out.println("Insufficient Balance");
+        	return;
+        }
+        balance -= amount;
+        recordTransaction("Withdraw", amount);
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public abstract double calculateInterest();
+    
+    public String toString() {
+    	return "Balance: "+this.balance;
+    }
+}

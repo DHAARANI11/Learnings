@@ -1,0 +1,10 @@
+package ClassAndObject;
+
+public class Employer {
+	private String name;
+	private String Department;
+	
+	private Employer() {}
+	
+	
+}

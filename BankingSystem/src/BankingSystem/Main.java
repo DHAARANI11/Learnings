@@ -1,0 +1,75 @@
+package BankingSystem;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Bank bank = Bank.getInstance();
+        boolean b=true;
+
+        while (b) {
+            System.out.println("\n1.Create Account \n2.Deposit \n3.Withdraw \n4.Balance \n5.ViewInterest \n6.View Customer Details \n7.Exit");
+            int choice = sc.nextInt();
+
+            try {
+                switch (choice) {
+                    case 1:
+                        sc.nextLine();
+                        System.out.print("Name: ");
+                        String name = sc.nextLine();
+                        System.out.print("1.Savings 2.Current: ");
+                        bank.createCustomer(name, sc.nextInt());
+                        break;
+
+                    case 2:
+                    	System.out.println("Enter Customer id: ");
+                    	int id=sc.nextInt();
+                    	if(bank.isValid(id)) {
+                    		System.out.println("Enter Amount: ");
+                    		bank.deposit(id, sc.nextDouble());
+                    	}
+                    	else throw new InvalidCustomerId("Customer Id Not Found, Please Enter Valid Customer Id"); 
+                        break;
+
+                    case 3:
+                    	System.out.println("Enter Customer id: ");
+                    	int Cid=sc.nextInt();
+                    	if(bank.isValid(Cid)) {
+                    		System.out.println("Enter Amount: ");
+                    		bank.withdraw(Cid, sc.nextDouble());
+                    	}
+                    	else throw new InvalidCustomerId("Customer Id Not Found, Please Enter Valid Customer Id"); 
+                        break;
+
+                    case 4:
+                    	System.out.println("Enter Customer id: ");
+                    	int id1=sc.nextInt();
+                    	if(bank.isValid(id1))
+                        System.out.println("Balance: " + bank.checkBalance(id1));
+                        else throw new InvalidCustomerId("Customer Id Not Found, Please Enter Valid Customer Id"); 
+                        break;
+
+                    case 5:
+                    	System.out.println("Enter Customer id: ");
+                    	int id2=sc.nextInt();
+                    	if(bank.isValid(id2)) bank.calculateInterest(id2);
+                    	else throw new InvalidCustomerId("Customer Id Not Found, Please Enter Valid Customer Id"); 
+                        break;
+
+                    case 6:
+                        bank.viewCustomers();
+                        break;
+
+                    case 7:
+                        b=false;
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+            finally {
+            	System.out.println("Thank you");
+            }
+        }
+    }
+}

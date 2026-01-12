@@ -1,0 +1,16 @@
+package ClassAndObject;
+
+public class InnerClass {
+	
+	public class Innercls1{
+		public void Helloworld() {
+			System.out.println("Hello World");
+		}
+	}
+	
+	static class Innercls2{
+		public void Helloworld() {
+			System.out.println("Hello");
+		}
+	}
+}

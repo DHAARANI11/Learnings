@@ -1,0 +1,13 @@
+package BankingSystem;
+
+public class Current extends Account{
+	@Override
+    public double calculateInterest() {
+        return 0;
+    }
+
+    @Override
+    public void recordTransaction(String type, double amount) {
+        System.out.println("[Current] " + type + ": " + amount);
+    }
+}

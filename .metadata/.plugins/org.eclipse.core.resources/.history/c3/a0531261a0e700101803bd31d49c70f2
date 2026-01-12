@@ -1,0 +1,26 @@
+package Polymorphism;
+
+public class Main {
+	public static void main(String[] args) {
+		
+		Overloading ol=new Overloading();
+		ol.Student();
+		ol.Student("Dharshini");
+		Overloading.Admin();
+		System.out.println(ol);
+		
+		Overloading ol2=new Overloading("RTS","Chennai");
+		Overloading.Admin();
+		System.out.println(ol2);
+		
+		
+		Overriding or=new Overriding();
+		or.Student();
+		or.Student("Kavi");
+		Overriding.Admin();
+		or.Depts();
+		
+		Overloading e=new EarlyBinding();
+		e.Employee();
+	}
+}

@@ -1,0 +1,43 @@
+package ClassAndObject;
+
+public class Employee {
+	
+	//Data Members
+	private static int employeeId=0;
+	int empId;
+	String employeeName;
+	String employeeDesignation;
+	final static String FINALDESIGNATION="Developer";
+	
+	//Constructor
+	Employee(String name,String Designation){
+		this.empId=++employeeId;
+		employeeName=name;
+		employeeDesignation=Designation;
+	}
+	
+	//Constructor Overloading
+	Employee(String employeeName){
+		this.empId=++employeeId;
+		this.employeeName=employeeName;
+		this.employeeDesignation=FINALDESIGNATION;
+	}
+	
+	//calling constructor from another constructor
+	Employee(Employee employee){
+		this.empId=employee.empId;
+		this.employeeName=employee.employeeName;
+		this.employeeDesignation=employee.employeeDesignation;
+	}
+	
+	//chaining constructor
+	Employee(){
+		this("Dhaarani");
+	}
+	
+	public void myEmp() {
+		System.out.println("My Employee");
+	}
+	
+	
+}

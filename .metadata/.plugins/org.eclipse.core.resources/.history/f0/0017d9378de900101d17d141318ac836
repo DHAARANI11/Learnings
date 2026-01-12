@@ -1,0 +1,7 @@
+package BankingSystem;
+
+public interface TransactionService {
+	void recordTransaction(String type, double amount);
+
+
+}
