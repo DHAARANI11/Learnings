@@ -1,0 +1,32 @@
+package Polymorphism;
+
+public class Overriding extends Overloading{
+	
+	private String Dept="CSE";
+	
+
+	@Override
+	void Student() {
+		//calling parent method
+		super.Student();
+		System.out.println("Hi Students");
+	}
+	
+	@Override 
+	void Student(String name) {
+		System.out.println("Hello, "+name);
+	}
+	
+	//static can't override
+	static void Admin() {
+		System.out.println("I am Admin");
+	}
+	
+	//Member override
+	void Depts() {
+		System.out.println(super.Dept);
+		System.out.println(this.Dept);
+		System.out.println(Dept);
+	}
+	
+}
